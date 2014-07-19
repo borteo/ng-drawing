@@ -1,0 +1,38 @@
+#top-bar {
+  overflow: hidden;
+  background: $top-bar-bg;
+  padding: 0 1em;
+  font-size: 1.4rem;
+}
+
+#view {
+  
+}
+
+.wrapper {
+  max-width: 1090px;
+  margin: 0 auto;
+}
+
+#header {
+  font-size: 1.2rem;
+  margin: 2em auto 0;
+  padding: 2em;
+  text-align: center;
+}
+
+#header-inner {
+  font-size: 1rem;
+  padding: 1em;
+  text-align: center;
+}
+
+#footer {
+  text-align: center;
+  background: $footer-bg;
+  color: $footer-color;
+}
+
+  #footer p {
+    padding: 1em 0 2.5em 0;
+  }

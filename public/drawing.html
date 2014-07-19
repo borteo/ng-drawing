@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <!--[if lt IE 7]>      <html lang="en" ng-app="ngDrawing" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html lang="en" ng-app="ngDrawing" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html lang="en" ng-app="ngDrawing" class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html lang="en" ng-app="ngDrawing" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ng-drawing</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/main.css"/>
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- this could become a directive -->
+    <nav id="top-bar">
+      <h1>ng-drawing</h1>
+      <ul class="right">
+        <li>
+          <a href="#/intro">Intro</a>
+        </li>
+        <li>
+          <a href="#/playground" title="drawer panel">Playground</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="wrapper" id="view" ng-view></div>
+
+    <footer id="footer">
+      <p>TrialReach Assessment | ng-drawing | Author: Matteo Borgato</p>
+    </footer>
+
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-route/angular-route.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

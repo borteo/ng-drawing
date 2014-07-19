@@ -191,6 +191,11 @@ services.service("bucketService", function() {
     // colour hex format: "#454567"
     paint: function( x, y, colour ) {
 
+      // when format is #123 -> #112233
+      if ( colour.length === 4) {
+        colour = '#' + colour[1] + colour[1] + colour[2] + colour[2] + colour[3] + colour[3];
+      }
+
       curColour.r = hexToR( colour );
       curColour.g = hexToG( colour );
       curColour.b = hexToB( colour );

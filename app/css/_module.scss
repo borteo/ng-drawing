@@ -1,0 +1,80 @@
+#top-bar li {
+    float: left;
+  }
+    #top-bar li a {
+      font-size: .8em;
+      padding: 0 1em;
+      line-height: 2.7em;
+      @include transition(background-color 300ms ease-out);
+      &:hover {
+        background: lighten($top-bar-bg, 5%);
+      }
+    }
+
+  #top-bar h1 {
+    float: left;
+  }
+
+
+#header h2,
+#header-inner h2 {
+  padding: 1.5em 0 0 0;
+  font-size: 2.5em;
+}
+
+#header-inner h2 {
+  padding: 0;
+}
+
+
+  #header h2 span {
+    color: #aca89a;
+    display: block;
+    font-size: .45em;
+    padding: 0 0 .5em .1em;
+  }
+
+section.description {
+  margin-bottom: 6.5em;
+  font-size: 1.1rem;
+}
+  
+  section.description p,
+  section.description ul {
+    padding: .3em;
+    
+    text-align: center;
+  }
+
+#panel {
+  text-align: center;
+  margin-bottom: 100px; 
+}
+
+  #panel form {
+    min-width: 200px;
+    width: 35%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #panel .items {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+  }
+
+  #panel li {
+    padding: .5em 1em;
+    @include transition(background-color 300ms ease-out);
+    cursor: pointer;
+  }
+
+  #panel li.active {
+    background-color: darken($bg-color, 5%);
+  }
+
+
+

@@ -8,14 +8,14 @@ app.constant("drawCommands", (function() {
     list: [
       {
         "name": "clear",
-        "description": "clear 'colour'",
+        "description": "clear 'hex colour'",
         "format": [
           "colour"
         ]
       },
       {
         "name": "rectangle",
-        "description": "rectangle 'x' 'y' 'w' 'h' 'colour'",
+        "description": "rectangle 'x' 'y' 'w' 'h' 'hex colour'",
         "format": [
           "number",
           "number",
@@ -26,7 +26,7 @@ app.constant("drawCommands", (function() {
       },
       {
         "name": "line",
-        "description": "line 'x1' 'y1' 'x2' 'y2' 'colour'",
+        "description": "line 'x1' 'y1' 'x2' 'y2' 'hex colour'",
         "format": [
           "number",
           "number",
@@ -37,7 +37,7 @@ app.constant("drawCommands", (function() {
       },
       {
         "name": "fill",
-        "description": "fill 'x' 'y' 'colour'",
+        "description": "fill 'x' 'y' 'hex colour'",
         "format": [
           "number",
           "number",

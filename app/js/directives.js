@@ -43,6 +43,10 @@ directives.directive('typeahead', [
           scope.current = index;
         };
 
+        scope.reset = function() {
+          scope.model = null;
+        };
+
         // sends the new command up to the other directives
         scope.submit = function() {
 
