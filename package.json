@@ -1,0 +1,32 @@
+{
+  "name": "ng-drawing",
+  "version": "0.1.0",
+  "description": "An interface to draw in a canvas using AngularJS",
+  "author": {
+    "name": "Matteo Borgato",
+    "email": "hello@matteoborgato.com",
+    "url": "http://matteoborgato.com"
+  },
+  "homepage": "http://matteoborgato.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/borteo/ng-drawing.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "load-grunt-tasks": "~0.1.0",
+    "grunt-contrib-compass": "~0.8.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "http-server": "^0.6.1"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+
+    "start": "http-server -a localhost -p 8000"
+  }
+}
