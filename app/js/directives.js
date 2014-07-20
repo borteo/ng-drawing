@@ -12,7 +12,7 @@ directives.directive('typeahead', [
       scope: {
         prompt:'@',
         title: '@',
-        subtitle: '@',
+        hint: '@',
         items: '=',
         model: '=',
         onSelect: '&'
@@ -27,9 +27,10 @@ directives.directive('typeahead', [
           scope.selected = true;
         };
 
-        scope.handleSelection = function( selectedItem ) {
+        scope.handleSelection = function( title, descr ) {
           init();
-          scope.model = selectedItem;
+          scope.model    = title;
+          scope.details  = descr;
           scope.onSelect();
         };
 
@@ -44,7 +45,8 @@ directives.directive('typeahead', [
         };
 
         scope.reset = function() {
-          scope.model = null;
+          scope.model   = null;
+          scope.details = null;
         };
 
         // sends the new command up to the other directives
@@ -57,6 +59,7 @@ directives.directive('typeahead', [
           // show the error when gets a string
           if ( typeof checkString === 'string') {
             console.warn( checkString );
+            scope.$emit( 'SEND_NOTIFICATION', checkString );
             return;
           }
 
@@ -88,17 +91,14 @@ directives.directive( 'drawingPanel', [
         var context = element[0].getContext('2d');
 
         scope.$on('SEND_COMMAND', function( event, message ) {
-
           var prm = commandService.params;
 
           if (commandService.command === "rectangle") {
             canvasDrawFactory.rectangle( context, prm[0], prm[1], prm[2], prm[3], prm[4] );
           }
-
           if (commandService.command === "line") {
             canvasDrawFactory.line( context, prm[0], prm[1], prm[2], prm[3], prm[4] );
           }
-
           if (commandService.command === "fill") {
             canvasDrawFactory.bucket( context, prm[0], prm[1], prm[2] );
           }
@@ -125,24 +125,42 @@ directives.directive('painter', [
 
         // set up canvas size
         scope.canvas = {
-          width: 250,
-          height: 250,
+          width: 450,
+          height: 350,
           background: 'white'
         };
 
         // get the available commands to draw
         scope.items = drawCommands.list;
 
-        scope.name = "";
-        scope.onItemSelected = function() {
-          console.log( 'selected='+scope.name );
-        };
-
-
         scope.$on('SEND_CLEAR', function( event, message ) {
           scope.canvas.background = commandService.params[0];
         });
-       
+        
+      }
+    };
+  }
+
+]);
+
+directives.directive('notification', [
+  '$timeout',
+  function( $timeout ) {
+    return {
+      restrict: 'E',
+      templateUrl: 'assets/template/notification.html',
+      link: function( scope, elem, attrs ) {
+
+        scope.$on('SEND_NOTIFICATION', function( event, message ) {
+          scope.active       = true;
+          scope.notification = message;
+
+          // remove error after 3s
+          $timeout(function() {
+            scope.active = false;
+          }, 3000);
+        
+        });
         
       }
     };

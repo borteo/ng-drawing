@@ -48,8 +48,11 @@ section.description {
 
 #panel {
   text-align: center;
-  margin-bottom: 100px; 
+  margin-bottom: 25px; 
 }
+  #panel .details {
+    padding: .4em 0;
+  }
 
   #panel form {
     min-width: 200px;

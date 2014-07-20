@@ -1,7 +1,7 @@
 #top-bar {
   overflow: hidden;
-  background: $top-bar-bg;
   padding: 0 1em;
+  background: $top-bar-bg;
   font-size: 1.4rem;
 }
 
@@ -9,28 +9,46 @@
   
 }
 
+#notification {
+  @include opacity(0);
+  @include transition(all 300ms ease-out);
+  position: absolute;
+  top: -50px;
+  padding: 1em 2em;
+  width: 100%;
+  background-color: $error-bg;
+  color: white;
+  text-align: center;
+}
+
+#notification.active {
+  @include opacity(1);
+  top: 0px;
+}
+
 .wrapper {
-  max-width: 1090px;
+  position: relative;
   margin: 0 auto;
+  max-width: 1090px;
 }
 
 #header {
-  font-size: 1.2rem;
   margin: 2em auto 0;
   padding: 2em;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 #header-inner {
-  font-size: 1rem;
   padding: 1em;
   text-align: center;
+  font-size: 1rem;
 }
 
 #footer {
-  text-align: center;
   background: $footer-bg;
   color: $footer-color;
+  text-align: center;
 }
 
   #footer p {
