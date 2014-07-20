@@ -1,0 +1,43 @@
+
+button {
+  @include responsive(s) { 
+    font-size: 0.9em;
+    padding: .4em .6em;
+  }
+  @include responsive(m) { 
+    font-size: 1.2em;
+    padding: 0.6em 1.2em;
+  }
+}
+
+
+#panel .canvas-container {
+  overflow: hidden;
+  margin: 0 auto;
+
+  @include responsive(s) { 
+    width: 320px;
+  }
+  @include responsive(m) {
+    width: 100%;
+  }
+}
+
+#top-bar li {
+  @include responsive(s) { 
+    float: none;
+    text-align: right;
+  }
+  @include responsive(m) { 
+    float: right;
+  }
+}
+
+#top-bar li a {
+  @include responsive(s) { 
+    padding: .1em;
+  }
+  @include responsive(m) { 
+    padding: 0 1em;
+  }
+}

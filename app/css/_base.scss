@@ -6,7 +6,7 @@ body {
   margin: 0;
   min-width: 320px;
   background-color: $bg-color;
-  color: #48a770;
+  color: $body-color;
 }
 
 body, 
@@ -19,12 +19,12 @@ a, button {
   outline: medium none;
 }
 a {
-  color: #48a770;
+  color: $link-color;
   text-decoration: none;
   &:hover, 
   &:focus {
     outline: medium none;
-    color: #2c774b;
+    color: darken($link-color, 10%);
   }
 }
 

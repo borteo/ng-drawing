@@ -6,9 +6,12 @@
 @import "compass";
 @import "compass/css3";
 
+@import "mixins";
+
 @import "variables";
 @import "fonts";
 @import "base";
 @import "layout";
 @import "module";
 @import "components";
+@import "responsive";

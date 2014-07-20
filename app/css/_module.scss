@@ -1,26 +1,37 @@
-#top-bar li {
-    float: left;
+  #top-bar li a {
+    @include transition(background-color 300ms ease-out);
+    font-size: .8em;
+    line-height: 2.7em;
+    &:hover {
+      background: lighten($top-bar-bg, 8%);
+    }
   }
-    #top-bar li a {
-      font-size: .8em;
-      padding: 0 1em;
-      line-height: 2.7em;
-      @include transition(background-color 300ms ease-out);
-      &:hover {
-        background: lighten($top-bar-bg, 5%);
-      }
+
+    #top-bar li.active-view a {
+      background: lighten($top-bar-bg, 5%);
     }
 
   #top-bar h1 {
     float: left;
   }
 
-
 #header h2,
 #header-inner h2 {
-  padding: 1.5em 0 0 0;
-  font-size: 2.5em;
-}
+  @include responsive(s) { 
+    font-size: 2em;
+    padding: 0;
+  }
+  @include responsive(m) { 
+    font-size: 2.5em;
+    padding: 1.5em 0 0 0;
+  }
+  @include responsive(l) { 
+    font-size: 2.8em;
+    padding: 1.8em 0 0 0;
+  }
+}  
+
+
 
 #header-inner h2 {
   padding: 0;
@@ -28,10 +39,10 @@
 
 
   #header h2 span {
-    color: #aca89a;
     display: block;
-    font-size: .45em;
     padding: 0 0 .5em .1em;
+    color: #aca89a;
+    font-size: .45em;
   }
 
 section.description {
@@ -47,37 +58,39 @@ section.description {
   }
 
 #panel {
-  text-align: center;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
+  text-align: center; 
 }
   #panel .details {
     padding: .4em 0;
   }
 
   #panel form {
+    position: relative;
+    margin: 0 auto;
     min-width: 200px;
     width: 35%;
-    margin: 0 auto;
-    position: relative;
   }
 
   #panel .items {
-    text-align: left;
-    background: rgba(255, 255, 255, 0.8);
     position: absolute;
     z-index: 10;
     width: 100%;
+    background: $typeahead-bg;
+    text-align: left;
+  }
+
+  #panel .item span {
+    font-size: 0.8em;
+    display: block;
   }
 
   #panel li {
-    padding: .5em 1em;
     @include transition(background-color 300ms ease-out);
+    padding: .5em 1em;
     cursor: pointer;
   }
 
   #panel li.active {
     background-color: darken($bg-color, 5%);
   }
-
-
-
