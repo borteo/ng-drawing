@@ -2,6 +2,7 @@
     @include transition(background-color 300ms ease-out);
     font-size: .8em;
     line-height: 2.7em;
+    padding: .2em 1.2em;
     &:hover {
       background: lighten($top-bar-bg, 8%);
     }
@@ -31,12 +32,9 @@
   }
 }  
 
-
-
 #header-inner h2 {
   padding: 0;
 }
-
 
   #header h2 span {
     display: block;
@@ -44,11 +42,6 @@
     color: #aca89a;
     font-size: .45em;
   }
-
-section.description {
-  margin-bottom: 6.5em;
-  font-size: 1.1rem;
-}
   
   section.description p,
   section.description ul {

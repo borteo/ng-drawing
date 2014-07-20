@@ -187,24 +187,25 @@ h2 {
   transition: background-color 300ms ease-out;
   font-size: .8em;
   line-height: 2.7em;
+  padding: .2em 1.2em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\000036}}
 #top-bar li a:hover {
   background: #fefefd;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000311}}
 #top-bar li.active-view a {
   background: #faf8f2;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000315}}
 #top-bar h1 {
   float: left;
 }
 
 @media (min-width: 320px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000320}}
   #header h2,
   #header-inner h2 {
     font-size: 2em;
@@ -212,7 +213,7 @@ h2 {
   }
 }
 @media (min-width: 640px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000320}}
   #header h2,
   #header-inner h2 {
     font-size: 2.5em;
@@ -220,7 +221,7 @@ h2 {
   }
 }
 @media (min-width: 1200px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000320}}
   #header h2,
   #header-inner h2 {
     font-size: 2.8em;
@@ -228,12 +229,12 @@ h2 {
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000335}}
 #header-inner h2 {
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000339}}
 #header h2 span {
   display: block;
   padding: 0 0 .5em .1em;
@@ -241,31 +242,25 @@ h2 {
   font-size: .45em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000348}}
-section.description {
-  margin-bottom: 6.5em;
-  font-size: 1.1rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000347}}
 section.description p,
 section.description ul {
   padding: .3em;
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000353}}
 #panel {
   margin-bottom: 25px;
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000357}}
 #panel .details {
   padding: .4em 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000361}}
 #panel form {
   position: relative;
   margin: 0 auto;
@@ -273,7 +268,7 @@ section.description ul {
   width: 35%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000368}}
 #panel .items {
   position: absolute;
   z-index: 10;
@@ -282,13 +277,13 @@ section.description ul {
   text-align: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000376}}
 #panel .item span {
   font-size: 0.8em;
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000381}}
 #panel li {
   -webkit-transition: background-color 300ms ease-out;
   -moz-transition: background-color 300ms ease-out;
@@ -298,7 +293,7 @@ section.description ul {
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_module\.scss}line{font-family:\0000387}}
 #panel li.active {
   background-color: #efe9d7;
 }
@@ -354,26 +349,29 @@ section.description ul {
 @media (min-width: 320px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_responsive\.scss}line{font-family:\0000326}}
   #top-bar li {
-    float: none;
+    display: block;
     text-align: right;
   }
 }
 @media (min-width: 640px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_responsive\.scss}line{font-family:\0000326}}
   #top-bar li {
-    float: right;
+    display: inline-block;
   }
 }
 
 @media (min-width: 320px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_responsive\.scss}line{font-family:\0000336}}
-  #top-bar li a {
-    padding: .1em;
+  section.description {
+    margin-bottom: 3em;
+    font-size: 0.85rem;
+    padding: 0 1em;
   }
 }
 @media (min-width: 640px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matteo\/Sites\/ng-drawing\/app\/css\/_responsive\.scss}line{font-family:\0000336}}
-  #top-bar li a {
-    padding: 0 1em;
+  section.description {
+    margin-bottom: 6.5em;
+    font-size: 1.1rem;
   }
 }

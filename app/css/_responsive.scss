@@ -25,19 +25,22 @@ button {
 
 #top-bar li {
   @include responsive(s) { 
-    float: none;
+    display: block;
     text-align: right;
   }
   @include responsive(m) { 
-    float: right;
+    display: inline-block;
   }
 }
 
-#top-bar li a {
+section.description {
   @include responsive(s) { 
-    padding: .1em;
+    margin-bottom: 3em;
+    font-size: 0.85rem;
+    padding: 0 1em;
   }
   @include responsive(m) { 
-    padding: 0 1em;
+    margin-bottom: 6.5em;
+    font-size: 1.1rem;
   }
 }
