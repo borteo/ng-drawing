@@ -1,28 +1,20 @@
-==========
-ng-drawing
-==========
+
+# ng-drawing
 
 Web app that draws shapes on a page based on a user's commands.
 
 Current version: 0.1
 
-
 ## Features
+
 - Command line interface
 - Autocomplete
 - Graceful error handling
 - Responsive
 - General development features:
   - Sass (with compass, Ruby required)
-  - Grunt.js, Bower
+  - Grunt.js, Bower    
 
-
-## Installation
-
-- clone repo
-- Change Twitter username and Disqus shortname in `default.hbs` (just find **justusebrain** for Twitter and **theaqua** for Disqus)
-- Drop theme to `/content/themes` and change Ghost settings.
-    
 
 ## Getting Started
 
