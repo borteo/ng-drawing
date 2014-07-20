@@ -7,7 +7,7 @@ services.factory('canvasDrawFactory', [
 
     var canvasDrawFactory = function () {
       // TODO (out of assignment scope)
-      // creating a proper Object with attributes (x,y,h,w,c)
+      // creating a proper Object with attributes (x, y, h, w, c)
       // and adding it into this array
       // it would be possible to delete, move and so on.
       // I just save a string for now
@@ -37,10 +37,8 @@ services.factory('canvasDrawFactory', [
     };
 
     canvasDrawFactory.prototype.bucket = function( context, x, y, colour ) {
-
       bucketService.init( context );
       bucketService.paint( x, y, colour);
-
     };
 
     return new canvasDrawFactory();

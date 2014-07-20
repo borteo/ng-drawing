@@ -7,7 +7,7 @@ services.service('commandService', [
 
     // private methods
 
-    // Is this command available?   
+    // Is this command param 'cmd' available?   
     var searchCommand = function( cmd ) {
       for ( var i = 0, nodes = cmdList.length; i < nodes; i++) {
         if (cmdList[i].name === cmd) {
@@ -18,12 +18,17 @@ services.service('commandService', [
     };
 
     // Are all the params correct?
+    // @param:
+    // - details of the specific command (drawCommand[command])
+    // - cmd is the command to check
     // accepts hex colour: #123 - #123456
     var checkParams = function( details, cmd ) {
+      // hex 3 or 6 digits accapted
       var reColour = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i;
       
       for ( var i = 0, nodes = details.format.length; i < nodes; i++) {
-
+        
+        // check the 'format types'
         if ( details.format[ i ] === "number" ) {
           if ( cmd[ i ] < 0 || cmd[ i ] > 500) { // 500 could be set up in a config file
             return false;

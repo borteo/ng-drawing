@@ -23,6 +23,7 @@ app.config([ '$routeProvider', function( $routeProvider ) {
   $routeProvider.otherwise({ redirectTo: '/intro' });
 }]);
 
+// used to save the status of the view activated
 app.run(['$rootScope', "$route",
   function( $rootScope, $route ) {
 

@@ -1,20 +1,21 @@
-  #top-bar li a {
-    @include transition(background-color 300ms ease-out);
-    font-size: .8em;
-    line-height: 2.7em;
-    padding: .2em 1.2em;
-    &:hover {
-      background: lighten($top-bar-bg, 8%);
-    }
-  }
+#top-bar h1 {
+  float: left;
+}
 
-    #top-bar li.active-view a {
-      background: lighten($top-bar-bg, 5%);
-    }
-
-  #top-bar h1 {
-    float: left;
+#top-bar li a {
+  @include transition(background-color 300ms ease-out);
+  font-size: .8em;
+  line-height: 2.7em;
+  padding: .2em 1.2em;
+  &:hover {
+    background: lighten($top-bar-bg, 8%);
   }
+}
+
+#top-bar li.active-view a {
+  background: lighten($top-bar-bg, 5%);
+}
+
 
 #header h2,
 #header-inner h2 {

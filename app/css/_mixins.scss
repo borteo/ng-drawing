@@ -1,4 +1,4 @@
-@mixin responsive($media) {
+@mixin responsive( $media ) {
   @if $media == s {
     @media (min-width: 320px) { @content; }
   }

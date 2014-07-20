@@ -23,6 +23,7 @@ app.config([ '$routeProvider', function( $routeProvider ) {
   $routeProvider.otherwise({ redirectTo: '/intro' });
 }]);
 
+// used to save the status of the view activated
 app.run(['$rootScope', "$route",
   function( $rootScope, $route ) {
 
@@ -36,20 +37,17 @@ app.run(['$rootScope', "$route",
 var services = angular.module('ngDrawing.services', []);
 
 
+
 /* Controllers */
 
 angular.module( 'ngDrawing.controllers', [])
   .controller( 'introController', [
     '$scope',
-    function( $scope ) {
-
-    }
+    function( $scope ) { }
   ])
   .controller( 'playgroundController', [
     '$scope',
-    function( $scope ) {
-     
-    }
+    function( $scope ) { }
   ]);
 
 
@@ -58,6 +56,32 @@ angular.module( 'ngDrawing.controllers', [])
 
 var directives = angular.module('ngDrawing.directives', []);
 
+// notification system
+directives.directive('notification', [
+  '$timeout',
+  function( $timeout ) {
+    return {
+      restrict: 'E',
+      templateUrl: 'assets/template/notification.html',
+      link: function( scope, elem, attrs ) {
+
+        scope.$on('SEND_NOTIFICATION', function( event, message ) {
+          scope.active       = true;
+          scope.notification = message;
+
+          // remove error after 3s
+          $timeout(function() {
+            scope.active = false;
+          }, 3000);
+        
+        });
+        
+      }
+    };
+  }
+]);
+
+// autocomplete/typeahead
 directives.directive('typeahead', [
   'canvasDrawFactory',
   'commandService',
@@ -166,7 +190,7 @@ directives.directive( 'drawingPanel', [
 ]);
 
 
-// main directive
+// main directive - container
 // used to initialise typeahead (autocomplete) and canvas directives
 directives.directive('painter', [
   'drawCommands',
@@ -198,34 +222,10 @@ directives.directive('painter', [
 
 ]);
 
-directives.directive('notification', [
-  '$timeout',
-  function( $timeout ) {
-    return {
-      restrict: 'E',
-      templateUrl: 'assets/template/notification.html',
-      link: function( scope, elem, attrs ) {
-
-        scope.$on('SEND_NOTIFICATION', function( event, message ) {
-          scope.active       = true;
-          scope.notification = message;
-
-          // remove error after 3s
-          $timeout(function() {
-            scope.active = false;
-          }, 3000);
-        
-        });
-        
-      }
-    };
-  }
-
-]);
 
 /* Service used to flood-fill the canvas */
 
-services.service("bucketService", function() {
+services.service('bucketService', function() {
   var context;
   var canvasWidth;
   var canvasHeight;
@@ -247,61 +247,60 @@ services.service("bucketService", function() {
     return ( h.charAt(0) === "#" ) ? h.substring( 1, 7 ) : h;
   };
 
-  // Clears the canvas.
-  var clearCanvas = function () {
+  // Clears the canvas
+  var clearCanvas = function() {
     context.clearRect( 0, 0, context.canvas.width, context.canvas.height );
   };
 
     // Draw the elements on the canvas
-  var redraw = function () {
+  var redraw = function() {
     clearCanvas();
     // Draw the current state of the color layer to the canvas
     context.putImageData(colorLayerData, 0, 0);
   };
 
-  var matchOutlineColor = function (r, g, b, a) {
-      return (r + g + b < 100 && a === 255);
-    };
+  var matchOutlineColor = function( r, g, b, a ) {
+    return ( r + g + b < 100 && a === 255 );
+  };
 
   var matchStartColor = function (pixelPos, startR, startG, startB) {
 
-      var r = outlineLayerData.data[pixelPos],
-        g = outlineLayerData.data[pixelPos + 1],
-        b = outlineLayerData.data[pixelPos + 2],
-        a = outlineLayerData.data[pixelPos + 3];
+    var r = outlineLayerData.data[ pixelPos ];
+    var g = outlineLayerData.data[ pixelPos + 1 ];
+    var b = outlineLayerData.data[ pixelPos + 2 ];
+    var a = outlineLayerData.data[ pixelPos + 3 ];
 
-      // If current pixel of the outline image is black
-      if (matchOutlineColor(r, g, b, a)) {
-        return false;
-      }
+    // If current pixel of the outline image is black
+    if ( matchOutlineColor( r, g, b, a ) ) {
+      return false;
+    }
 
-      r = colorLayerData.data[pixelPos];
-      g = colorLayerData.data[pixelPos + 1];
-      b = colorLayerData.data[pixelPos + 2];
+    r = colorLayerData.data[pixelPos];
+    g = colorLayerData.data[pixelPos + 1];
+    b = colorLayerData.data[pixelPos + 2];
 
-      // If the current pixel matches the clicked color
-      if (r === startR && g === startG && b === startB) {
-        return true;
-      }
-
-      // If current pixel matches the new color
-      if (r === curColour.r && g === curColour.g && b === curColour.b) {
-        return false;
-      }
-
+    // If the current pixel matches the clicked color
+    if ( r === startR && g === startG && b === startB ) {
       return true;
-    };
+    }
+
+    // If current pixel matches the new color
+    if ( r === curColour.r && g === curColour.g && b === curColour.b ) {
+      return false;
+    }
+
+    return true;
+  };
 
   var colorPixel = function (pixelPos, r, g, b, a) {
-
-      colorLayerData.data[pixelPos] = r;
-      colorLayerData.data[pixelPos + 1] = g;
-      colorLayerData.data[pixelPos + 2] = b;
-      colorLayerData.data[pixelPos + 3] = a !== undefined ? a : 255;
-    };
+    colorLayerData.data[ pixelPos ]     = r;
+    colorLayerData.data[ pixelPos + 1 ] = g;
+    colorLayerData.data[ pixelPos + 2 ] = b;
+    colorLayerData.data[ pixelPos + 3 ] = a !== undefined ? a : 255;
+  };
 
   // Inspiration from William Malone
-  var floodFill = function (startX, startY, startR, startG, startB) {
+  var floodFill = function( startX, startY, startR, startG, startB ) {
 
     var newPos;
     var x;
@@ -315,7 +314,7 @@ services.service("bucketService", function() {
     var drawingBoundBottom = angular.copy(canvasHeight - 1);
     var pixelStack = [[startX, startY]];
 
-    while (pixelStack.length) {
+    while ( pixelStack.length ) {
 
       newPos = pixelStack.pop();
       x = newPos[0];
@@ -325,7 +324,7 @@ services.service("bucketService", function() {
       pixelPos = (y * canvasWidth + x) * 4;
 
       // Go up as long as the color matches and are inside the canvas
-      while (y >= drawingBoundTop && matchStartColor(pixelPos, startR, startG, startB)) {
+      while ( y >= drawingBoundTop && matchStartColor( pixelPos, startR, startG, startB ) ) {
         y -= 1;
         pixelPos -= canvasWidth * 4;
       }
@@ -336,31 +335,31 @@ services.service("bucketService", function() {
       reachRight = false;
 
       // Go down as long as the color matches and in inside the canvas
-      while (y <= drawingBoundBottom && matchStartColor(pixelPos, startR, startG, startB)) {
+      while ( y <= drawingBoundBottom && matchStartColor( pixelPos, startR, startG, startB ) ) {
         y += 1;
 
-        colorPixel(pixelPos, curColour.r, curColour.g, curColour.b);
+        colorPixel( pixelPos, curColour.r, curColour.g, curColour.b );
 
-        if (x > drawingBoundLeft) {
-          if (matchStartColor(pixelPos - 4, startR, startG, startB)) {
-            if (!reachLeft) {
+        if ( x > drawingBoundLeft ) {
+          if ( matchStartColor(pixelPos - 4, startR, startG, startB ) ) {
+            if ( !reachLeft ) {
               // Add pixel to stack
-              pixelStack.push([x - 1, y]);
+              pixelStack.push([ x - 1, y ]);
               reachLeft = true;
             }
-          } else if (reachLeft) {
+          } else if ( reachLeft ) {
             reachLeft = false;
           }
         }
 
-        if (x < drawingBoundRight) {
-          if (matchStartColor(pixelPos + 4, startR, startG, startB)) {
-            if (!reachRight) {
+        if ( x < drawingBoundRight ) {
+          if ( matchStartColor( pixelPos + 4, startR, startG, startB ) ) {
+            if ( !reachRight ) {
               // Add pixel to stack
-              pixelStack.push([x + 1, y]);
+              pixelStack.push([ x + 1, y ]);
               reachRight = true;
             }
-          } else if (reachRight) {
+          } else if ( reachRight ) {
             reachRight = false;
           }
         }
@@ -371,32 +370,34 @@ services.service("bucketService", function() {
   };
 
   // Start painting with paint bucket tool starting from pixel specified by startX and startY
-  var paintAt = function (startX, startY) {
+  var paintAt = function( startX, startY ) {
 
-    var pixelPos = (startY * canvasWidth + startX) * 4,
-      r = colorLayerData.data[pixelPos],
-      g = colorLayerData.data[pixelPos + 1],
-      b = colorLayerData.data[pixelPos + 2],
-      a = colorLayerData.data[pixelPos + 3];
+    var pixelPos = ( startY * canvasWidth + startX ) * 4;
+    var r        = colorLayerData.data[ pixelPos ];
+    var g        = colorLayerData.data[ pixelPos + 1 ];
+    var b        = colorLayerData.data[ pixelPos + 2 ];
+    var a        = colorLayerData.data[ pixelPos + 3 ];
 
-    if (r === curColour.r && g === curColour.g && b === curColour.b) {
+    if ( r === curColour.r && g === curColour.g && b === curColour.b ) {
       // Return because trying to fill with the same color
       return;
     }
 
-    if (matchOutlineColor(r, g, b, a)) {
-      // Return because clicked outline
+    if ( matchOutlineColor( r, g, b, a ) ) {
+      // Return because position outline
       return;
     }
 
-    floodFill(startX, startY, r, g, b);
+    floodFill( startX, startY, r, g, b );
 
     redraw();
   };
 
+  // public methods available for DI
   var service = {
+
     // Creates a canvas element, loads images, adds events, and draws the canvas for the first time.
-    init: function (ctx) {
+    init: function( ctx ) {
       context = ctx;
 
       canvasWidth  = context.canvas.width;
@@ -404,7 +405,7 @@ services.service("bucketService", function() {
 
       try {
         outlineLayerData = context.getImageData( 0, 0, canvasWidth, canvasHeight );
-      } catch (ex) {
+      } catch ( ex ) {
         console.error("Application cannot be run locally. Please run on a server.");
         return;
       }
@@ -443,7 +444,7 @@ services.factory('canvasDrawFactory', [
 
     var canvasDrawFactory = function () {
       // TODO (out of assignment scope)
-      // creating a proper Object with attributes (x,y,h,w,c)
+      // creating a proper Object with attributes (x, y, h, w, c)
       // and adding it into this array
       // it would be possible to delete, move and so on.
       // I just save a string for now
@@ -473,10 +474,8 @@ services.factory('canvasDrawFactory', [
     };
 
     canvasDrawFactory.prototype.bucket = function( context, x, y, colour ) {
-
       bucketService.init( context );
       bucketService.paint( x, y, colour);
-
     };
 
     return new canvasDrawFactory();
@@ -492,7 +491,7 @@ services.service('commandService', [
 
     // private methods
 
-    // Is this command available?   
+    // Is this command param 'cmd' available?   
     var searchCommand = function( cmd ) {
       for ( var i = 0, nodes = cmdList.length; i < nodes; i++) {
         if (cmdList[i].name === cmd) {
@@ -503,12 +502,17 @@ services.service('commandService', [
     };
 
     // Are all the params correct?
+    // @param:
+    // - details of the specific command (drawCommand[command])
+    // - cmd is the command to check
     // accepts hex colour: #123 - #123456
     var checkParams = function( details, cmd ) {
+      // hex 3 or 6 digits accapted
       var reColour = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i;
       
       for ( var i = 0, nodes = details.format.length; i < nodes; i++) {
-
+        
+        // check the 'format types'
         if ( details.format[ i ] === "number" ) {
           if ( cmd[ i ] < 0 || cmd[ i ] > 500) { // 500 could be set up in a config file
             return false;

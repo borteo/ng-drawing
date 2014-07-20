@@ -19,11 +19,11 @@
   background-color: $error-bg;
   color: white;
   text-align: center;
-}
 
-#notification.active {
-  @include opacity(1);
-  top: 0px;
+  &.active {
+    @include opacity(1);
+    top: 0px;
+  }
 }
 
 .wrapper {

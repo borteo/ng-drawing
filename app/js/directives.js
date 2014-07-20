@@ -3,6 +3,32 @@
 
 var directives = angular.module('ngDrawing.directives', []);
 
+// notification system
+directives.directive('notification', [
+  '$timeout',
+  function( $timeout ) {
+    return {
+      restrict: 'E',
+      templateUrl: 'assets/template/notification.html',
+      link: function( scope, elem, attrs ) {
+
+        scope.$on('SEND_NOTIFICATION', function( event, message ) {
+          scope.active       = true;
+          scope.notification = message;
+
+          // remove error after 3s
+          $timeout(function() {
+            scope.active = false;
+          }, 3000);
+        
+        });
+        
+      }
+    };
+  }
+]);
+
+// autocomplete/typeahead
 directives.directive('typeahead', [
   'canvasDrawFactory',
   'commandService',
@@ -111,7 +137,7 @@ directives.directive( 'drawingPanel', [
 ]);
 
 
-// main directive
+// main directive - container
 // used to initialise typeahead (autocomplete) and canvas directives
 directives.directive('painter', [
   'drawCommands',
@@ -135,31 +161,6 @@ directives.directive('painter', [
 
         scope.$on('SEND_CLEAR', function( event, message ) {
           scope.canvas.background = commandService.params[0];
-        });
-        
-      }
-    };
-  }
-
-]);
-
-directives.directive('notification', [
-  '$timeout',
-  function( $timeout ) {
-    return {
-      restrict: 'E',
-      templateUrl: 'assets/template/notification.html',
-      link: function( scope, elem, attrs ) {
-
-        scope.$on('SEND_NOTIFICATION', function( event, message ) {
-          scope.active       = true;
-          scope.notification = message;
-
-          // remove error after 3s
-          $timeout(function() {
-            scope.active = false;
-          }, 3000);
-        
         });
         
       }

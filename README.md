@@ -143,3 +143,7 @@ This can be improved saving and array of objects. Every object can be `new Shape
 - drawCommands: this is an basically an array of objects. It's used by the autocomplete to show the commmands, and by the commandService to check if the command written is well formatted.
 The convention for the format is `number` for the dimensions and positions and `colour` for the hex colour (3 or 6 digits). That's easily scalable to other formats.
 - commandService: instance of the command sent. Directives use the `command` and `params` instance variables to create the shapes, fill the canvas or change the background.
+
+## Code conventions
+In order to write consistent and Idiomatic JavaScript code, I follow the principles of
+[idiomatic.js](https://github.com/rwaldron/idiomatic.js/)
