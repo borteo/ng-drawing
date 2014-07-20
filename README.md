@@ -1,9 +1,10 @@
-
-# ng-drawer
+==========
+ng-drawing
+==========
 
 Web app that draws shapes on a page based on a user's commands.
 
-Current version: 0.3
+Current version: 0.1
 
 
 ## Features
@@ -15,8 +16,8 @@ Current version: 0.3
   - Sass (with compass, Ruby required)
   - Grunt.js, Bower
 
-#### Installation
 
+## Installation
 
 - clone repo
 - Change Twitter username and Disqus shortname in `default.hbs` (just find **justusebrain** for Twitter and **theaqua** for Disqus)
@@ -24,14 +25,15 @@ Current version: 0.3
     
 
 ## Getting Started
-To get you started you can simply clone the ng-drawer repository and install the dependencies:
+
+To get you started you can simply clone the ng-drawing repository and install the dependencies:
 
 ### Prerequisites
 
-You need git to clone the ng-drawer repository. You can get it from
+You need git to clone the ng-drawing repository. You can get it from
 [http://git-scm.com/](http://git-scm.com/).
 
-I also use a number of node.js tools to initialise nd-drawer. You must have node.js and
+I also use a number of node.js tools to initialise nd-drawing. You must have node.js and
 its package manager (npm) installed. You can get them from [http://nodejs.org/](http://nodejs.org/).
 
 Public folder already contains the compiled CSS files.
@@ -39,13 +41,13 @@ In order to compile Sass by yourself with Compass, you have to install ruby, rub
 [https://rubygems.org/](https://rubygems.org/)
 
 
-### Clone ng-drawer
+### Clone ng-drawing
 
-Clone the ng-drawer repository using [git][git]:
+Clone the ng-drawing repository using [git][git]:
 
 ```
-git clone https://github.com/borteo/ng-drawer.git
-cd ng-drawer
+git clone https://github.com/borteo/ng-drawing.git
+cd ng-drawing
 ```
 
 ### Install Dependencies
@@ -119,5 +121,4 @@ Angular is ideally suited for writing applications in declarative style. Once yo
 But the beauty of AngularJS is the `directive`. Thus the imperative code is hidden in the reusable implementation of the directive. The developer get to write the imperative code once and use it declaratively as the solution and re-use it.
 
 Many of the popular charting and graphing JS libraries are starting to support AngularJS by providing the directives for their components.
-
 
