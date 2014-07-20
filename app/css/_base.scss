@@ -3,10 +3,10 @@
 }
 
 body {
+  margin: 0;
+  min-width: 320px;
   background-color: $bg-color;
   color: #48a770;
-  min-width: 320px;
-  margin: 0;
 }
 
 body, 
@@ -23,38 +23,37 @@ a {
   text-decoration: none;
   &:hover, 
   &:focus {
-    color: #2c774b;
     outline: medium none;
+    color: #2c774b;
   }
 }
 
-
 input {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  @include transition(box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s);
   display: block;
-  height: 2.8em;
   margin: 0;
   padding: 0.5em;
-  @include transition(box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s);
   width: 100%;
+  height: 2.8em;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
 
 button {
-  background-color: $button-bg;
-  border: medium none;
   @include border-radius(2px);
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1.2em;
-  letter-spacing: 1px;
-  margin: 1em 0.5em;
-  padding: 0.6em 1.2em;
-  text-transform: uppercase;
   @include transition(background-color 300ms ease-out);
   position: relative;
+  display: inline-block;
+  margin: 1em 0.5em;
+  padding: 0.6em 1.2em;
+  border: medium none;
+  background-color: $button-bg;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  cursor: pointer;
   &:hover {
     background-color: lighten($button-bg, 10%);
   }
@@ -69,11 +68,10 @@ button {
   }
 }
   
-
 h1 {
+  text-transform: uppercase;
   font-weight: 400;
   line-height: 2.2;
-  text-transform: uppercase;
 }
 
 h2 {
