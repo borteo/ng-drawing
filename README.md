@@ -25,7 +25,7 @@ To get you started you can simply clone the ng-drawing repository and install th
 You need git to clone the ng-drawing repository. You can get it from
 [http://git-scm.com/](http://git-scm.com/).
 
-I also use a number of node.js tools to initialise nd-drawing. You must have node.js and
+I also use a number of node.js tools to initialise ng-drawing. You must have node.js and
 its package manager (npm) installed. You can get them from [http://nodejs.org/](http://nodejs.org/).
 
 Public folder already contains the compiled CSS files.
@@ -35,7 +35,7 @@ In order to compile Sass by yourself with Compass, you have to install ruby, rub
 
 ### Clone ng-drawing
 
-Clone the ng-drawing repository using [git][git]:
+Clone the ng-drawing repository using [git](http://git-scm.com/):
 
 ```
 git clone https://github.com/borteo/ng-drawing.git
@@ -47,9 +47,9 @@ cd ng-drawing
 There are two kinds of dependencies in this project: tools and angular framework code. The tools help
 to manage the application.
 
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, a [client-side code package manager][bower].
-* `Grunt` concatenates JavaScript and compiles Sass, a [JavaScript task runner][grunt].
+* We get the tools we depend upon via `npm`, the [node package manager](https://www.npmjs.org/).
+* We get the angular code via `bower`, a [client-side code package manager](http://bower.io/).
+* `grunt` concatenates JavaScript and compiles Sass, a [JavaScript task runner](http://gruntjs.com/).
 
 
 I have preconfigured `npm` to automatically run `bower` so we can simply do:
@@ -114,3 +114,32 @@ But the beauty of AngularJS is the `directive`. Thus the imperative code is hidd
 
 Many of the popular charting and graphing JS libraries are starting to support AngularJS by providing the directives for their components.
 
+
+### Directives
+
+The container directive is called painter, this component can be used in every page simply using the tag `<painter>`.
+
+Painter contains the following directives:
+- notification: to visualise the error raised from the typeahead
+- drawing-panel: the canvas with customisable attribute: width, height and inline-style for the babkground-color 
+- typeahead: the input text which provides a simple autocomplete to suggest the commands available
+
+Design pattern chain of responsabilities is used to communicate (`$emit`) to the father that an event has been triggered.
+This is used to communicate the command from the typeahead to the canvas and to the notification.
+
+The event gets propagated from the father to the children when the scope of the directive is by default set to false.
+
+### Services and Factories
+
+These components are singletons. There is only one object, but is injected into many places.
+
+Most of the directives use services and/or factories. 
+In order to keep them sorted I have created a folder called services which contains several files for every service/factory
+
+
+- bucketService: has the logic to flood-fill the canvas.
+- canvasDrawFactory: contains the methods to draw the shapes. I created a instance variable `shapes` to keep in an array all the shapes created. 
+This can be improved saving and array of objects, and every object can be `new Shape( attributes )` in order to have an instance of every shape created and manipulate position, dimension, colour and so on. (drag and drop would be easy to implement).
+- drawCommands: this is an array of objects. It's used by the autocomplete to show the commmands, and by the commandService to check if the command written is well formatted.
+The convention for the format is `number` for the dimensions and positions and `colour` for the hex colour (3 or 6 digits). That's easily scalable to other formats.
+- commandService: instance of the command sent. Directives use the `command` and `params` instance variables to create the shapes, fill the canvas or change the background.
