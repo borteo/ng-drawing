@@ -121,17 +121,17 @@ The container directive is called painter, this component can be used in every p
 
 Painter contains the following directives:
 - notification: to visualise the error raised from the typeahead
-- drawing-panel: the canvas with customisable attribute: width, height and inline-style for the babkground-color 
+- drawing-panel: the canvas with customisable attribute: `width`, `height` and inline-style for the `background-color`
 - typeahead: the input text which provides a simple autocomplete to suggest the commands available
 
-Design pattern chain of responsabilities is used to communicate (`$emit`) to the father that an event has been triggered.
+Design pattern *chain of responsabilities* is used to communicate (`$emit`) to the father that an event has been triggered.
 This is used to communicate the command from the typeahead to the canvas and to the notification.
 
 The event gets propagated from the father to the children when the scope of the directive is by default set to false.
 
 ### Services and Factories
 
-These components are singletons. There is only one object, but is injected into many places.
+These components are *singletons*. There is only one object, but is injected into many places.
 
 Most of the directives use services and/or factories. 
 In order to keep them sorted I have created a folder called services which contains several files for every service/factory
@@ -139,7 +139,7 @@ In order to keep them sorted I have created a folder called services which conta
 
 - bucketService: has the logic to flood-fill the canvas.
 - canvasDrawFactory: contains the methods to draw the shapes. I created a instance variable `shapes` to keep in an array all the shapes created. 
-This can be improved saving and array of objects, and every object can be `new Shape( attributes )` in order to have an instance of every shape created and manipulate position, dimension, colour and so on. (drag and drop would be easy to implement).
-- drawCommands: this is an array of objects. It's used by the autocomplete to show the commmands, and by the commandService to check if the command written is well formatted.
+This can be improved saving and array of objects. Every object can be `new Shape( attributes )` in order to have an instance of every shape created and manipulate position, dimension, colour and so on. (drag and drop would be easy to implement).
+- drawCommands: this is an basically an array of objects. It's used by the autocomplete to show the commmands, and by the commandService to check if the command written is well formatted.
 The convention for the format is `number` for the dimensions and positions and `colour` for the hex colour (3 or 6 digits). That's easily scalable to other formats.
 - commandService: instance of the command sent. Directives use the `command` and `params` instance variables to create the shapes, fill the canvas or change the background.
