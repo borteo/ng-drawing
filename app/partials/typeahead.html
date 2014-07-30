@@ -1,0 +1,29 @@
+<div class="autocomplete">
+  
+  <p class="details" ng-show="details">
+    <span class="bold">hint:</span> 
+    {{ details }}
+  </p>
+  
+  <form ng-submit="submit()">
+    <input type="text" 
+      ng-model="model" 
+      placeholder="{{ prompt }}" 
+      ng-keydown="selected = false"
+    />
+    <ul class="items" ng-hide="!model.length || selected">
+      <li 
+        class="item" ng-class="{ active:isCurrent( $index ) }" 
+        ng-repeat="item in items | filter:model track by $index" 
+        ng-click="handleSelection( item[ title ], item[ hint ] )"  
+        ng-mouseenter="setCurrent( $index )"
+      >
+        {{ item[ title ] }} <span>{{ item[ hint ] }}</span>
+      </li>
+    </ul>
+    
+    <button type="submit">Draw</button> 
+    <button type="reset" class="reset" ng-click="reset()">Cancel</button>
+  </form>
+
+</div>

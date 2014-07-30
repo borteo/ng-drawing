@@ -1,0 +1,25 @@
+<notification></notification>
+
+<header id="header-inner">
+  <h2>Drawing Panel</h2>
+</header>
+
+<section id="panel">
+  <div class="canvas-container">
+    <canvas drawing-panel 
+      width="{{ canvas.width }}" 
+      height="{{ canvas.height }}"
+      ng-style="{ 'background-color': canvas.background }"
+    ></canvas> 
+  </div>
+  
+  <typeahead 
+    items="items" 
+    prompt="Start typing a command" 
+    title="name" 
+    hint="description" 
+    model="name" 
+    on-select="onItemSelected()" 
+  />
+
+</section>
