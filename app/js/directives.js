@@ -9,7 +9,7 @@ directives.directive('notification', [
   function( $timeout ) {
     return {
       restrict: 'E',
-      templateUrl: 'assets/template/notification.html',
+      templateUrl: 'assets/partials/notification.html',
       link: function( scope, elem, attrs ) {
 
         scope.$on('SEND_NOTIFICATION', function( event, message ) {
@@ -43,7 +43,7 @@ directives.directive('typeahead', [
         model: '=',
         onSelect: '&'
       },
-      templateUrl: 'assets/template/typeahead.html',
+      templateUrl: 'assets/partials/typeahead.html',
 
       link: function( scope, elem, attrs ) {
         // private 
@@ -146,7 +146,7 @@ directives.directive('painter', [
   function( drawCommands, canvasDrawFactory, commandService ) {
     return {
       restrict: 'E',
-      templateUrl: 'assets/template/painter.html',
+      templateUrl: 'assets/partials/painter.html',
       link: function( scope, elem, attrs ) {
 
         // set up canvas size

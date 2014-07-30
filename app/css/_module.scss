@@ -3,7 +3,7 @@
 }
 
 #top-bar li a {
-  @include transition(background-color 300ms ease-out);
+  // @include transition(background-color 300ms ease-out);
   font-size: .8em;
   line-height: 2.7em;
   padding: .2em 1.2em;
@@ -80,7 +80,7 @@
   }
 
   #panel li {
-    @include transition(background-color 300ms ease-out);
+    // @include transition(background-color 300ms ease-out);
     padding: .5em 1em;
     cursor: pointer;
   }

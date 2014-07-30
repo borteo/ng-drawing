@@ -29,7 +29,7 @@ a {
 }
 
 input {
-  @include transition(box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s);
+  // @include transition(box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s);
   display: block;
   margin: 0;
   padding: 0.5em;
@@ -41,8 +41,8 @@ input {
 }
 
 button {
-  @include border-radius(2px);
-  @include transition(background-color 300ms ease-out);
+  border-radius: 2px;
+  // @include transition(background-color 300ms ease-out);
   position: relative;
   display: inline-block;
   margin: 1em 0.5em;

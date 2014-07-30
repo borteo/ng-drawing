@@ -3,7 +3,7 @@
 
 Web app that draws shapes on a page based on a user's commands.
 
-Current version: 0.1
+Current version: 0.1.1
 
 ## Features
 
@@ -84,18 +84,14 @@ Now browse to the app at `http://localhost:8000/drawing.html`
 
     app/                --> all of the files to be used in development
       css/              --> css files (Sass)
+      partials/         --> Angular partials (html)
+      pages/            --> application pages
       js/               --> javascript files
         application.js  --> application
         controllers.js  --> application controllers
         directives.js   --> application directives
         services/       --> custom angular services 
-
     public/             --> production files
-      css/              --> compiled css files
-      js/               --> compiled javascript file
-        main.js         --> concatenated main javascript file
-      template/         --> angular templates/view partials
-      drawing.html      --> app layout file (the main html template file of the app)
 
 
 ## Application walkthrough

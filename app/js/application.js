@@ -11,12 +11,12 @@ var app = angular.module( 'ngDrawing', [
 app.config([ '$routeProvider', function( $routeProvider ) {
   $routeProvider.when( '/intro', {
     activePage: 'intro',
-    templateUrl: 'assets/template/intro.html',
+    templateUrl: 'assets/partials/intro.html',
     controller: 'introController'
   });
   $routeProvider.when( '/playground', {
     activePage: 'playground',
-    templateUrl: 'assets/template/playground.html',
+    templateUrl: 'assets/partials/playground.html',
     controller: 'playgroundController'
   });
 
