@@ -27,12 +27,11 @@ app.config([ '$routeProvider', function( $routeProvider ) {
 app.run(['$rootScope', "$route",
   function( $rootScope, $route ) {
 
-    $rootScope.$on("$routeChangeSuccess", function ( scope, next, current ) {
+    $rootScope.$on("$routeChangeSuccess", function( scope, next, current ) {
       $rootScope.view = $route.current.activePage;
     });
   }
 ]);
-
 
 var services = angular.module('ngDrawing.services', []);
 
