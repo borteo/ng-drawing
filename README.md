@@ -29,11 +29,6 @@ You need git to clone the ng-drawing repository. You can get it from
 I also use a number of node.js tools to initialise ng-drawing. You must have node.js and
 its package manager (npm) installed. You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-Public folder already contains the compiled CSS files.
-In order to compile Sass by yourself with Compass, you have to install ruby, rubygem and finally compass gem.
-[https://rubygems.org/](https://rubygems.org/)
-
-
 ### Clone ng-drawing
 
 Clone the ng-drawing repository using [git](http://git-scm.com/):
