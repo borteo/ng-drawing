@@ -12,8 +12,8 @@ Current version: 0.1.1
 - Graceful error handling
 - Responsive
 - General development features:
-  - Sass (with compass, Ruby required)
-  - Grunt.js, Bower    
+  - Sass
+  - Gulp.js, Bower    
 
 
 ## Getting Started
