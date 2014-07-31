@@ -45,7 +45,7 @@ to manage the application.
 
 * We get the tools we depend upon via `npm`, the [node package manager](https://www.npmjs.org/).
 * We get the angular code via `bower`, a [client-side code package manager](http://bower.io/).
-* `grunt` concatenates JavaScript and compiles Sass, a [JavaScript task runner](http://gruntjs.com/).
+* `gulp` concatenates JavaScript and compiles Sass, a [The streaming build system](http://gulpjs.com/).
 
 
 I have preconfigured `npm` to automatically run `bower` so we can simply do:
