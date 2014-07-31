@@ -13,7 +13,8 @@ Current version: 0.1.1
 - Responsive
 - General development features:
   - Sass
-  - Gulp.js, Bower    
+  - Gulp.js
+  - Bower    
 
 
 ## Getting Started
