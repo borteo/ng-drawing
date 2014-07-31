@@ -24,14 +24,13 @@ app.config([ '$routeProvider', function( $routeProvider ) {
 }]);
 
 // used to save the status of the view activated
-app.run(['$rootScope', "$route",
+app.run(['$rootScope', '$route',
   function( $rootScope, $route ) {
 
-    $rootScope.$on("$routeChangeSuccess", function( scope, next, current ) {
+    $rootScope.$on('$routeChangeSuccess', function( scope, next, current ) {
       $rootScope.view = $route.current.activePage;
     });
   }
 ]);
 
 var services = angular.module('ngDrawing.services', []);
-
