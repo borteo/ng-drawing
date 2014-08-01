@@ -71,9 +71,10 @@ npm start
 Now browse to the app at `http://localhost:8000/drawing.html`
 
 
-### Run tasks with grunt
-- Run `grunt watch` (for live compiling SCSS and JS) 
-- Run `grunt` for build
+### Run tasks with gulp
+- Run `gulp server`  starts a server (port 9122)
+- Run `gulp watch` for live compiling SCSS minify JS and move HTML - calls the previous task (server) as well.
+- Run `gulp` for build
 
 
 ## Directory Layout
